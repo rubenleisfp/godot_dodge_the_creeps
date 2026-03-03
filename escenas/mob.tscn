@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bfqwwvx0r4v0n"]
+
+[ext_resource type="Script" uid="uid://briwf0jnkx1wd" path="res://escenas/mob.gd" id="1_h1x8x"]
+[ext_resource type="Texture2D" uid="uid://chc4yu4d41j6f" path="res://art/enemyFlyingAlt_1.png" id="1_novxo"]
+[ext_resource type="Texture2D" uid="uid://5aywglheno4" path="res://art/enemyFlyingAlt_2.png" id="2_h1x8x"]
+[ext_resource type="Texture2D" uid="uid://pjw4jyv22ou6" path="res://art/enemySwimming_1.png" id="3_lu2ku"]
+[ext_resource type="Texture2D" uid="uid://cslsfqabe1asc" path="res://art/enemySwimming_2.png" id="4_eg6jf"]
+[ext_resource type="Texture2D" uid="uid://dmdgl40vy8ofi" path="res://art/enemyWalking_1.png" id="5_jn4vn"]
+[ext_resource type="Texture2D" uid="uid://cgfkns7hmxo7w" path="res://art/enemyWalking_2.png" id="6_j424f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yp7cd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_novxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_h1x8x")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lu2ku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eg6jf")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jn4vn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j424f")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[node name="Mob" type="RigidBody2D" unique_id=2012661432]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_h1x8x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2147459980]
+rotation = 1.5707964
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_yp7cd")
+animation = &"fly"
+frame_progress = 0.30923727
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=195322075]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=414603087]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
