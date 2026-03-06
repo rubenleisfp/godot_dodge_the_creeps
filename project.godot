@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="dodge_the_creeps"
-run/main_scene="uid://cbd56ghimavdx"
+run/main_scene="uid://pafvd80sram6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
