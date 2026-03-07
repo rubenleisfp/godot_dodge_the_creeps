@@ -12,18 +12,18 @@ func _process(delta: float) -> void:
 
 
 func game_over() -> void:
-	print("game_over")
+	#print("game_over")
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 
 func new_game():
-	print("new_game")
+	#print("new_game")
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 
 func _on_mob_timer_timeout():
-	print("_on_mob_timer_timeout")
+	#print("_on_mob_timer_timeout")
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 
@@ -49,11 +49,11 @@ func _on_mob_timer_timeout():
 	add_child(mob)
 
 func _on_score_timer_timeout() -> void:
-	print("_on_score_timer_timeout")
+	#print("_on_score_timer_timeout")
 	score += 1
 
 
 func _on_start_timer_timeout() -> void:
-	print("_on_start_timer_timeout")
+	#print("_on_start_timer_timeout")
 	$MobTimer.start()
 	$ScoreTimer.start()
